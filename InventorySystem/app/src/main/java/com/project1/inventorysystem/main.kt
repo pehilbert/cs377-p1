@@ -1,4 +1,4 @@
-import Inventory
+package com.project1.inventorysystem
 
 fun main() {
     val inv = Inventory()
