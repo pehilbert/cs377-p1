@@ -21,7 +21,7 @@ public class TVShow(name: String, creator: String, releaseYear: Int, genre: Stri
     }
 
     override fun getSubscriptionCost(): Double {
-        return 3.99
+        return 10.99
     }
 }
 
