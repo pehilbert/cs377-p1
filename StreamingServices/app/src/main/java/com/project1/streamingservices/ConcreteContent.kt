@@ -1,7 +1,7 @@
 package com.project1.streamingservices
 
 // Concrete Content types
-public class Movie(name: String, creator: String, releaseYear: Int, genre: String) : Content(name, creator, releaseYear, genre) {
+class Movie(name: String, creator: String, releaseYear: Int, genre: String) : Content(name, creator, releaseYear, genre) {
     override fun play(): String {
         return "Playing Movie: ${this.name}"
     }
@@ -11,7 +11,7 @@ public class Movie(name: String, creator: String, releaseYear: Int, genre: Strin
     }
 }
 
-public class TVShow(name: String, creator: String, releaseYear: Int, genre: String, val seasons: Int, val episodes: Int) : Content(name, creator, releaseYear, genre) {
+class TVShow(name: String, creator: String, releaseYear: Int, genre: String, val seasons: Int, val episodes: Int) : Content(name, creator, releaseYear, genre) {
     override fun play(): String {
         return "Playing TV Show: ${this.name}"
     }
@@ -25,7 +25,7 @@ public class TVShow(name: String, creator: String, releaseYear: Int, genre: Stri
     }
 }
 
-public class Documentary(name: String, creator: String, releaseYear: Int, genre: String, val topic: String) : Content(name, creator, releaseYear, genre) {
+class Documentary(name: String, creator: String, releaseYear: Int, genre: String, val topic: String) : Content(name, creator, releaseYear, genre) {
     override fun play(): String {
         return "Playing Documentary: ${this.name}"
     }

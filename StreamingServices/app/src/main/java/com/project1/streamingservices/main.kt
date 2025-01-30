@@ -32,4 +32,5 @@ fun main() {
     // Using the SmartTV
     smartTV.displayAllServicesContent()
     smartTV.playAllContent()
+    smartTV.displayAllSubscriptionCosts()
 }

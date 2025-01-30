@@ -9,4 +9,5 @@ abstract class StreamingService {
     }
 
     abstract fun getSubscriptionCost(): Double
+    abstract fun getName(): String
 }

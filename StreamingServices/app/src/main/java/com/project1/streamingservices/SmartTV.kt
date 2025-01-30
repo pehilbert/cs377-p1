@@ -29,4 +29,15 @@ public class SmartTV {
             }
         }
     }
+
+    // Displays details of all content in all streaming services
+    fun displayAllSubscriptionCosts() {
+        for (service in this.services) {
+            println("${service.getName()}: ${service.getSubscriptionCost()}")
+
+            for (content in service.catalog) {
+                println("${content.getDetails()}, cost: ${content.getSubscriptionCost()}")
+            }
+        }
+    }
 }
