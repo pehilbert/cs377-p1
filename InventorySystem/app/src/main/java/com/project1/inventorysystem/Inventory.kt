@@ -1,42 +1,39 @@
 package com.project1.inventorysystem
 
-public class Inventory {
-    val map: HashMap<String, Int>
+class Inventory {
+    private val map: HashMap<String, Int> = HashMap()
 
-    constructor() {
-        this.map = HashMap<String, Int>()
-    }
-    
     // Adds a new entry into inventory. Throws exception if product already exists
-    fun add(id: String, quantity: Int): Unit {
-        if (map.containsKey(id)) {
+    fun add(id: String, quantity: Int) {
+        if (map[id] != null) {
             throw Exception("Cannot add a product that already exists.")
         }
 
-        map.put(id, maxOf(0, quantity))
+        map[id] = maxOf(0, quantity)
     }
 
     // Updates an existing entry. Throws exception if product does not exist
-    fun update(id: String, newQuant: Int): Unit {
-        if (!map.containsKey(id)) {
+    fun update(id: String, newQuant: Int) {
+        if (map[id] == null) {
             throw Exception("Cannot update a nonexistent product.")
         }
 
-        map.put(id, maxOf(0, newQuant))
+        map[id] = maxOf(0, newQuant)
     }
 
     // Gets the quantity of an entry. Throws exception if product does not exist
     fun get(id: String): Int {
-        if (!map.containsKey(id)) {
+        if (map[id] == null) {
             throw Exception("Product not found.")
         }
 
-        return map.getOrDefault(id, 0)
+        // suggestion by Android studio to add !!
+        return map[id]!!
     }
 
     // Removes an entry. Throws exception if product does not exist
-    fun remove(id: String): Unit {
-        if (!map.containsKey(id)) {
+    fun remove(id: String) {
+        if (map[id] == null) {
             throw Exception("Cannot delete a nonexistent product.")
         }
 
@@ -45,9 +42,9 @@ public class Inventory {
 
     // Displays current inventory
     fun display() {
-        for (entry in this.map) {
-            var product = entry.key
-            var quantity = entry.value
+        for (entry in map) {
+            val product = entry.key
+            val quantity = entry.value
 
             println("$product: $quantity")
         }

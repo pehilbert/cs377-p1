@@ -1,20 +1,16 @@
 package com.project1.streamingservices
 
 // SmartTV class which manages various streaming services
-public class SmartTV {
-    val services: ArrayList<StreamingService>
-
-    constructor() {
-        this.services = ArrayList<StreamingService>()
-    }
+class SmartTV {
+    private val services: ArrayList<StreamingService> = ArrayList()
 
     fun addService(service: StreamingService) {
-        this.services.add(service)
+        services.add(service)
     }
     
     // Displays details of all content in all streaming services
     fun displayAllServicesContent() {
-        for (service in this.services) {
+        for (service in services) {
             for (content in service.catalog) {
                 println(content.getDetails())
             }
@@ -23,7 +19,7 @@ public class SmartTV {
 
     // Plays all content in all streaming services
     fun playAllContent() {
-        for (service in this.services) {
+        for (service in services) {
             for (content in service.catalog) {
                 println(content.play())
             }
@@ -32,7 +28,7 @@ public class SmartTV {
 
     // Displays details of all content in all streaming services
     fun displayAllSubscriptionCosts() {
-        for (service in this.services) {
+        for (service in services) {
             println("${service.getName()}: ${service.getSubscriptionCost()}")
 
             for (content in service.catalog) {

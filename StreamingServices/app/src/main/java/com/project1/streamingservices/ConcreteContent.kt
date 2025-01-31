@@ -3,7 +3,7 @@ package com.project1.streamingservices
 // Concrete Content types
 class Movie(name: String, creator: String, releaseYear: Int, genre: String) : Content(name, creator, releaseYear, genre) {
     override fun play(): String {
-        return "Playing Movie: ${this.name}"
+        return "Playing Movie: $name"
     }
 
     override fun getSubscriptionCost(): Double {
@@ -11,13 +11,13 @@ class Movie(name: String, creator: String, releaseYear: Int, genre: String) : Co
     }
 }
 
-class TVShow(name: String, creator: String, releaseYear: Int, genre: String, val seasons: Int, val episodes: Int) : Content(name, creator, releaseYear, genre) {
+class TVShow(name: String, creator: String, releaseYear: Int, genre: String, private val seasons: Int, private val episodes: Int) : Content(name, creator, releaseYear, genre) {
     override fun play(): String {
-        return "Playing TV Show: ${this.name}"
+        return "Playing TV Show: $name"
     }
 
     override fun getDetails(): String {
-        return "${this.name} (${this.releaseYear}) by ${this.creator}, Genre: ${this.genre}, ${this.seasons} seasons and ${this.episodes} episodes"
+        return "$name ($releaseYear) by $creator, Genre: $genre, $seasons seasons and $episodes episodes"
     }
 
     override fun getSubscriptionCost(): Double {
@@ -25,13 +25,13 @@ class TVShow(name: String, creator: String, releaseYear: Int, genre: String, val
     }
 }
 
-class Documentary(name: String, creator: String, releaseYear: Int, genre: String, val topic: String) : Content(name, creator, releaseYear, genre) {
+class Documentary(name: String, creator: String, releaseYear: Int, genre: String, private val topic: String) : Content(name, creator, releaseYear, genre) {
     override fun play(): String {
-        return "Playing Documentary: ${this.name}"
+        return "Playing Documentary: $name"
     }
 
     override fun getDetails(): String {
-        return "${this.name} (${this.releaseYear}) by ${this.creator}, Genre: ${this.genre}, Topic: ${this.topic}"
+        return "$name ($releaseYear) by $creator, Genre: $genre, Topic: $topic"
     }
 
     override fun getSubscriptionCost(): Double {
